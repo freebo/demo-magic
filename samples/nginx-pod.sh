@@ -44,6 +44,9 @@ pe "kubectl expose deployment nginx --type LoadBalancer --port 80"
 
 pe "kubectl get service"
 
+p "done"
+
+
 if [ ! -d "stuff" ]; then
   pe "mkdir stuff"
 fi
