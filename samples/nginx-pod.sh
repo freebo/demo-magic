@@ -49,7 +49,7 @@ wait
 
 pe "kubectl get service"
 
-p "done"
+p "Done"
 
 
 if [ ! -d "stuff" ]; then
