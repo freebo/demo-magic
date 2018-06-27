@@ -9,6 +9,9 @@
 ########################
 # Configure the options
 ########################
+#
+# Source the RG and name of cluster
+. ./.env
 
 #
 # speed at which to simulate typing. bigger num = faster
@@ -32,29 +35,21 @@ clear
 
 
 # put your demo awesomeness here
-RG=demok8-rg
-NAME=demok8-cl
 
 pe "az aks get-credentials --resource-group $RG --name $NAME"
-wait
+
 
 pe "kubectl get nodes"
-wait
+
 
 pe "kubectl run nginx --image nginx --port 80"
-wait
 
 pe "kubectl expose deployment nginx --type LoadBalancer --port 80"
-wait
 
-pe "kubectl get service"
+pe "kubectl get service -w"
 
 p "End"
 
-
-if [ ! -d "stuff" ]; then
-  pe "mkdir stuff"
-fi
 
 #pe "cd stuff"
 
